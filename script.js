@@ -91,7 +91,18 @@ function timeOfDay () {
   - Handle invalid input (like blanks or min >= max)
 */
 function randomBetween () {
-  // TODO: Write your code here
+  const minInput = prompt('Enter the minimum number:')
+  const maxInput = prompt('Enter the maximum number:')
+  const min = Number(minInput)
+  const max = Number(maxInput)
+
+  if (minInput === null || maxInput === null || minInput.trim() === '' || maxInput.trim() === '' || isNaN(min) || isNaN(max) || min >= max) {
+    render('<p class="text-muted">Please enter valid minimum and maximum numbers.</p>')
+    return
+  }
+
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
+  render(`<p>Random number: ${randomNumber}</p>`)
 }
 
 /* 
@@ -126,5 +137,53 @@ document.getElementById('btnClear').addEventListener('click', clearOutput)
   Write each function below, and don’t forget to connect each one 
   to a new button in index.html using addEventListener.
 */
+
+function changeTitle () {
+  document.getElementById('pageTitle').textContent = 'JavaScript Functions Are Fun!'
+  document.title = 'JavaScript Functions Are Fun!'
+}
+
+const textColors = ['red', 'green', 'orange', 'purple', 'blue']
+let currentColorIndex = 0
+
+function cycleColor () {
+  document.getElementById('out').style.color = textColors[currentColorIndex]
+  currentColorIndex++
+
+  if (currentColorIndex === textColors.length) {
+    currentColorIndex = 0
+  }
+}
+
+const backgroundColors = ['hotpink', 'yellow', 'cyan', '#bf00ff', 'lime', 'orange']
+let lastBackgroundColorIndex = -1
+
+function changeBackgroundColor () {
+  let randomIndex = Math.floor(Math.random() * backgroundColors.length)
+
+  if (randomIndex === lastBackgroundColorIndex) {
+    randomIndex = (randomIndex + 1) % backgroundColors.length
+  }
+
+  lastBackgroundColorIndex = randomIndex
+  document.getElementById('out').style.backgroundColor = backgroundColors[randomIndex]
+}
+
+function doubleNumber () {
+  const input = prompt('Enter a number:')
+  const number = Number(input)
+
+  if (input === null || input.trim() === '' || isNaN(number)) {
+    render('<p class="text-muted">Please enter a valid number.</p>')
+    return
+  }
+
+  render(`<p>${number} doubled is ${number * 2}.</p>`)
+}
+
+document.getElementById('btnChangeTitle').addEventListener('click', changeTitle)
+document.getElementById('btnCycleColor').addEventListener('click', cycleColor)
+document.getElementById('btnBgColor').addEventListener('click', changeBackgroundColor)
+document.getElementById('btnDouble').addEventListener('click', doubleNumber)
 
 document.getElementsByClassName('titlee')

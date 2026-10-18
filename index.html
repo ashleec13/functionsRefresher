@@ -15,7 +15,7 @@
 <body>
     <header class="py-4 border-bottom bg-dark text-white">
         <div class="container">
-            <h1 class="titlee m-0">🍂 JS Functions Demo</h1>
+            <h1 id="pageTitle" class="titlee m-0">🍂 JS Functions Demo</h1>
         </div>
     </header>
 
@@ -25,12 +25,16 @@
             <div class="col-12 col-lg-10">
                 <div class="card shadow">
                     <div class="card-body">
-                        <div class="row g-2 text-center">
+                        <div class="row row-cols-2 row-cols-md-3 g-2 text-center">
                             <div class="col"><button id="btnGreet" class="btn w-100">Greet</button></div>
                             <div class="col"><button id="btnAvg" class="btn w-100">Average</button></div>
                             <div class="col"><button id="btnTime" class="btn w-100">Time of Day</button></div>
                             <div class="col"><button id="btnRandom" class="btn w-100">Random Number</button></div>
                             <div class="col"><button id="btnClear" class="btn w-100">Clear</button></div>
+                            <div class="col"><button id="btnChangeTitle" class="btn btn-primary w-100">Change Title</button></div>
+                            <div class="col"><button id="btnCycleColor" class="btn btn-success w-100">Cycle Color</button></div>
+                            <div class="col"><button id="btnBgColor" class="btn btn-warning w-100">Random Background</button></div>
+                            <div class="col"><button id="btnDouble" class="btn btn-info w-100">Double Number</button></div>
                         </div>
                         <p class="text-secondary small text-center mt-3 mb-0">
                             Click a button to run the function.
@@ -46,7 +50,7 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <h2 class="h6 text-uppercase text-secondary mb-3 text-center">Output</h2>
-                        <div id="out" class="border rounded p-3 bg-light">
+                        <div id="out" class="border rounded p-3">
                             Output will appear here…
                         </div>
                     </div>
